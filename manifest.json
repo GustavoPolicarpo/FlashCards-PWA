@@ -1,0 +1,40 @@
+{
+  "name": "Zip Code Offline",
+  "short_name": "Zip Code Offline",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#fff",
+  "description": "An offline app to search for zip code",
+  "icons": [
+    {
+      "src": "images/zipcode.jpg",
+      "sizes": "48x48",
+      "type": "image/jpg"
+    },
+    {
+      "src": "images/zipcode.jpg",
+      "sizes": "72x72",
+      "type": "image/jpg"
+    },
+    {
+      "src": "images/zipcode.jpg",
+      "sizes": "96x96",
+      "type": "image/jpg"
+    },
+    {
+      "src": "images/zipcode.jpg",
+      "sizes": "144x144",
+      "type": "image/jpg"
+    },
+    {
+      "src": "images/zipcode.jpg",
+      "sizes": "168x168",
+      "type": "image/jpg"
+    },
+    {
+      "src": "images/zipcode.jpg",
+      "sizes": "192x192",
+      "type": "image/jpg"
+    }
+  ]
+}
