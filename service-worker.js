@@ -1,4 +1,5 @@
 const CACHE_VERSION_KEY = 'flashcards-cache-v5';
+const BASE_PATH = '/FlashCards-PWA'; // if running locally, update to empty
 
 self.addEventListener('install', event => {
     event.waitUntil(installStaticAssets());
@@ -20,14 +21,14 @@ async function installStaticAssets() {
             cache.addAll([
                 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css',
                 'https://cdn.jsdelivr.net/npm/dexie@4.0.8/+esm',
-                '/',
-                '/favicon.ico',
-                '/index.html',
-                '/styles.css',
-                '/app.js',
-                '/manifest.json',
-                '/icons/icon-192x192.png',
-                '/icons/icon-512x512.png',
+                BASE_PATH + '/',
+                BASE_PATH + '/favicon.ico',
+                BASE_PATH + '/index.html',
+                BASE_PATH + '/styles.css',
+                BASE_PATH + '/app.js',
+                BASE_PATH + '/manifest.json',
+                BASE_PATH + '/icons/icon-192x192.png',
+                BASE_PATH + '/icons/icon-512x512.png',
             ])
         );
 }
