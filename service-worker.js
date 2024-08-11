@@ -1,4 +1,4 @@
-const CACHE_VERSION_KEY = 'flashcards-cache-v2';
+const CACHE_VERSION_KEY = 'flashcards-cache-v5';
 
 self.addEventListener('install', event => {
     event.waitUntil(installStaticAssets());
@@ -20,13 +20,14 @@ async function installStaticAssets() {
             cache.addAll([
                 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css',
                 'https://cdn.jsdelivr.net/npm/dexie@4.0.8/+esm',
-                './images/zipcode.jpg',
-                './images/favicon-16x16.png',
-                './images/favicon-32x32.png',
                 '/',
-                './index.html',
-                './styles.css',
-                './app.js'
+                '/favicon.ico',
+                '/index.html',
+                '/styles.css',
+                '/app.js',
+                '/manifest.json',
+                '/icons/icon-192x192.png',
+                '/icons/icon-512x512.png',
             ])
         );
 }
