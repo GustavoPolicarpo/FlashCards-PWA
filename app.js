@@ -1,6 +1,3 @@
-import getFlashCardDatabase from './helpers/database.js';
-import registerServiceWorker from './helpers/install-sw.js';
-
 let flashcards = [];
 let currentCard = 0;
 
@@ -84,6 +81,7 @@ document.getElementById('load-csv').addEventListener('click', async () => {
   const csvUrl = document.getElementById('csv-url').value;
   if (csvUrl) {
       try {
+          setLoading(true);
           const response = await fetch(csvUrl);
           const csvText = await response.text();
           const parsedCards = parseCSV(csvText);
@@ -94,8 +92,17 @@ document.getElementById('load-csv').addEventListener('click', async () => {
       } catch (error) {
           alert("Failed to load CSV file. Please check the URL and try again.");
       }
+      finally{
+        setLoading(false);
+      }
   }
 });
+
+function setLoading(isLoading) {
+  const submitButton = document.getElementById('load-csv')
+  submitButton.setAttribute('aria-busy', isLoading);
+  submitButton.disabled = isLoading;
+}
 
 //#region database
 const db = await getFlashCardDatabase();
@@ -117,8 +124,20 @@ async function updateFlashcard(id, flashcard) {
 async function deleteFlashcard(id) {
   await db.flashcards.delete(id);
 }
+
+async function getFlashCardDatabase() {
+  const { default: Dexie } = await import(
+    'https://cdn.jsdelivr.net/npm/dexie@4.0.8/+esm'
+  );
+  const db = new Dexie('FlashCardDatabase');
+  db.version(1).stores({
+    flashcards: '++id,front,back',
+  });
+  return db;
+}
 //#endregion
 
+//#region util
 function parseCSV(csvText) {
   const rows = csvText.split('\n');
   return rows.map(row => {
@@ -127,7 +146,20 @@ function parseCSV(csvText) {
   }).filter(card => card.front && card.back);
 }
 
+async function registerServiceWorker() {
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('./service-worker.js')
+      .then(registration => {
+        console.log('Service Worker registered with scope:', registration.scope);
+      })
+      .catch(error => {
+        console.log('Service Worker registration failed:', error);
+      });
+  }
+}
+//#endregion
 registerServiceWorker();
+
 
 window.onload = async () => {
   updateFlashcardUI();
