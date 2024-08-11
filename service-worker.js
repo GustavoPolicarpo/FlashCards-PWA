@@ -1,4 +1,4 @@
-const CACHE_VERSION_KEY = 'flashcards-cache-v5';
+const CACHE_VERSION_KEY = 'flashcards-cache-v6';
 const BASE_PATH = '/FlashCards-PWA'; // if running locally, update to empty
 
 self.addEventListener('install', event => {
@@ -36,11 +36,9 @@ async function installStaticAssets() {
 async function cacheFirst(request) {
     const cache = await caches.open(CACHE_VERSION_KEY);
     const response = await cache.match(request);
-    console.log(request);
-    if (response) {
-        return response;
-    }
-    console.log('URL not in the cache: ', request.url);
+    // console.log(request);
+    if (response) return response;
+    // console.log('URL not in the cache: ', request.url);
     try {
         const networkResponse = await fetch(request);
         return networkResponse;
