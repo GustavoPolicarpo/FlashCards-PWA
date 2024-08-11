@@ -160,7 +160,4 @@ async function registerServiceWorker() {
 //#endregion
 registerServiceWorker();
 
-
-window.onload = async () => {
-  updateFlashcardUI();
-};
+window.onload = await updateFlashcardUI();
