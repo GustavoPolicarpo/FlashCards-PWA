@@ -150,3 +150,31 @@ body {
 .actions button i {
     margin-right: 5px;
 }
+
+.csv-loader {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    display: flex;
+    gap: 5px;
+}
+
+#csv-url {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+#load-csv {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#load-csv:hover {
+    background-color: #0056b3;
+}

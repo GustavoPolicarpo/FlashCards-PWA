@@ -80,6 +80,23 @@ document.getElementById('delete-card').addEventListener('click', async () => {
   updateFlashcardUI();
 });
 
+document.getElementById('load-csv').addEventListener('click', async () => {
+  const csvUrl = document.getElementById('csv-url').value;
+  if (csvUrl) {
+      try {
+          const response = await fetch(csvUrl);
+          const csvText = await response.text();
+          const parsedCards = parseCSV(csvText);
+          for (let card of parsedCards) {
+              await addFlashcard(card);
+          }
+          updateFlashcardUI();
+      } catch (error) {
+          alert("Failed to load CSV file. Please check the URL and try again.");
+      }
+  }
+});
+
 //#region database
 const db = await getFlashCardDatabase();
 
@@ -101,6 +118,14 @@ async function deleteFlashcard(id) {
   await db.flashcards.delete(id);
 }
 //#endregion
+
+function parseCSV(csvText) {
+  const rows = csvText.split('\n');
+  return rows.map(row => {
+      const [front, back] = row.split(',');
+      return { front, back };
+  }).filter(card => card.front && card.back);
+}
 
 registerServiceWorker();
 
