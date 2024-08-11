@@ -12,7 +12,7 @@ This is a Progressive Web App (PWA) using flashcards. The app allows users to cr
 
 ## Demo
 
-You can try the app live on GitHub Pages: [Language Flashcards PWA](https://yourusername.github.io/language-flashcards/)
+You can try the app live on GitHub Pages: [Flashcards PWA](https://gustavopolicarpo.github.io/FlashCards-PWA/)
 
 ## Usage
 
@@ -26,7 +26,7 @@ You can try the app live on GitHub Pages: [Language Flashcards PWA](https://your
 
 ### Importing Flashcards from CSV
 
-1. In the bottom-left corner, enter the URL of a CSV file containing your flashcards. You can use these [English to Portugues](https://yourusername.github.io/language-flashcards/import-example/deck_1.csv) or [English to Japanse](https://yourusername.github.io/language-flashcards/import-example/deck_2.csv) as example.
+1. In the bottom-left corner, enter the URL of a CSV file containing your flashcards. You can use these [English to Portugues](https://gustavopolicarpo.github.io/FlashCards-PWA/import-example/deck_1.csv) or [English to Japanse](https://gustavopolicarpo.github.io/FlashCards-PWA/import-example/deck_2.csv) as example.
 2. Click the "Load CSV" button to import the flashcards.
 
 **CSV Format:**
