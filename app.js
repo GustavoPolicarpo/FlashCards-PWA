@@ -36,6 +36,10 @@ document.getElementById('flip-btn').addEventListener('click', () => {
   updateInfoText();
 });
 
+document.getElementById('dropbtnId').addEventListener('click', () => {
+  alert("This feature is under development")
+});
+
 document.getElementById('next-card').addEventListener('click', () => {
   currentCard++;
   document.querySelector('.flashcard').classList.remove('flipped');
