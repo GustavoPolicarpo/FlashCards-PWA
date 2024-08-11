@@ -4,19 +4,30 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!--<link rel="manifest" href="manifest.json" />-->
-    <title>Language Flashcards</title>
-    <!-- Fluid viewport -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.fluid.classless.min.css">
+    <title>Flashcards</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
     <link rel="stylesheet" href="styles.css">
     <script type="module" src="./app.js"></script>
   </head>
   <body>
-    <div class="flashcard">
-        <div class="front" id="front">Hello</div>
-        <div class="back" id="back">Hola</div>
-    </div>
-    <button id="flip-btn">Flip</button>
-    <script src="./app.js" type="module"></script>
+    <div class="container">
+      <div class="title">Flashcards</div>
+      <div class="flashcard">
+          <div class="front" id="front">No cards</div>
+          <div class="back" id="back">Add new ones!</div>
+          <div class="info" id="info">Front</div>
+      </div>
+      <div class="controls">
+          <button id="prev-card"><i class="fas fa-arrow-left"></i></button>
+          <button id="flip-btn"><i class="fas fa-sync-alt"></i></button>
+          <button id="next-card"><i class="fas fa-arrow-right"></i></button>
+      </div>
+      <div class="actions">
+          <button id="add-card"><i class="fas fa-plus"></i> Add</button>
+          <button id="update-card"><i class="fas fa-edit"></i> Update</button>
+          <button id="delete-card"><i class="fas fa-trash"></i> Delete</button>
+      </div>
+  </div>
 </body>
 </html>
 </html>
